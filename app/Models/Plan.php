@@ -10,5 +10,10 @@ class Plan extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['name', 'short_description','price'];
+    protected $fillable = ['name', 'short_description', 'price'];
+
+    public function signatures()
+    {
+        return $this->hasMany(Signature::class);
+    }
 }
