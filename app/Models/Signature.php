@@ -12,9 +12,13 @@ class Signature extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = ['client_id', 'plan_id', 'status'];
-    protected $cast = [
-        'status' => SignatureStatus::class
-    ];
+
+    protected function casts(): array
+    {
+        return [
+            'status' => SignatureStatus::class
+        ];
+    }
 
     public function client()
     {

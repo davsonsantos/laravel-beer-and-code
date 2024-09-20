@@ -15,9 +15,13 @@ class Transaction extends Model
         'signature_id',
         'status'
     ];
-    protected $casts = [
-        'status' => TransactionStatus::class
-    ];
+
+    protected function casts(): array
+    {
+        return [
+            'status' => TransactionStatus::class
+        ];
+    }
 
     public function signature()
     {

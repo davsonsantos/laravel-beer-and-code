@@ -11,9 +11,13 @@ class Client extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = ['user_id', 'document', 'birthdate'];
-    protected $cast = [
-        'birthdate' => 'datetime',
-    ];
+
+    protected function casts(): array
+    {
+        return [
+            'birthdate' => 'datetime',
+        ];
+    }
 
 
     public function user()

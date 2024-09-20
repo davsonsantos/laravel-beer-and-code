@@ -13,9 +13,12 @@ class SignatureHistory extends Model
     public $timestamps = false;
 
     protected $fillable = ['signature_id', 'last_updated', 'last_plan_id', 'last_status'];
-    protected $cast = [
-        'last_status' => SignatureStatus::class
-    ];
+    protected function casts(): array
+    {
+        return [
+            'last_status' => SignatureStatus::class
+        ];
+    }
 
     public function signature()
     {
